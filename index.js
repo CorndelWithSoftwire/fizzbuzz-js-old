@@ -1,35 +1,22 @@
-function fizzFezzBuzzBangBong(limit) {
+function fizzFezzBuzzBangBongReverse(limit) {
+    const rules = [[3, 'Fizz'], [13, 'Fezz'], [5, 'Buzz'], [7, 'Bang'], [11, 'Bong']];
+
     for (let i = 1; i <= limit; i++) {
-        let output = '';
-        let fezz = false;
+        // Get the basic components of the output for i
+        let components = rules.filter(([key, _]) => i % key === 0).map(([_, value]) => value);
 
-        if (i % 3 === 0) {
-            output += 'Fizz';
+        // Apply the additional 'Bong' rule.
+        if (components.includes('Bong')) {
+            components = components.filter(component => component == 'Bong' || component == 'Fezz');
         }
 
-        if (i % 13 === 0) {
-            output += 'Fezz';
-            fezz = true;
-        }
-        
-        if (i % 5 === 0) {
-            output += 'Buzz';
+        // Apply the reversal rule
+        if (i % 17 === 0) {
+            components.reverse(); 
         }
 
-        if (i % 7 === 0) {
-            output += 'Bang';
-        }
-
-        if (i % 11 === 0) {
-            output = fezz ? 'FezzBong' : 'Bong';
-        }
-
-        if (output.length === 0) {
-            output = i.toString();
-        }
-
-        console.log(output);
+        console.log(components.length ? components.join('') : i);
     }
 }
 
-fizzFezzBuzzBangBong(200);
+fizzFezzBuzzBangBongReverse(300);
