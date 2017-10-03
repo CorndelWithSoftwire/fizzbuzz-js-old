@@ -1,15 +1,25 @@
-function fizzbuzz(limit) {
+function fizzBuzzBang(limit) {
     for (let i = 1; i <= limit; i++) {
-        if (i % 3 == 0 && i % 5 == 0) {
-            console.log('FizzBuzz');
-        } else if (i % 3 == 0) {
-            console.log('Fizz');
-        } else if (i % 5 == 0) {
-            console.log('Buzz');
-        } else {
-            console.log(i);
+        let output = '';
+
+        if (i % 3 === 0) {
+            output += 'Fizz';
         }
+        
+        if (i % 5 === 0) {
+            output += 'Buzz';
+        }
+
+        if (i % 7 === 0) {
+            output += 'Bang';
+        }
+
+        if (output.length === 0) {
+            output = i.toString();
+        }
+
+        console.log(output);
     }
 }
 
-fizzbuzz(100);
+fizzBuzzBang(200);
