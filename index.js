@@ -1,4 +1,4 @@
-function fizzBuzzBang(limit) {
+function fizzBuzzBangBong(limit) {
     for (let i = 1; i <= limit; i++) {
         let output = '';
 
@@ -14,6 +14,10 @@ function fizzBuzzBang(limit) {
             output += 'Bang';
         }
 
+        if (i % 11 === 0) {
+            output = 'Bong';
+        }
+
         if (output.length === 0) {
             output = i.toString();
         }
@@ -22,4 +26,4 @@ function fizzBuzzBang(limit) {
     }
 }
 
-fizzBuzzBang(200);
+fizzBuzzBangBong(200);
